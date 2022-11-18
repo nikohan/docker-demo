@@ -23,7 +23,7 @@ RUN GOOS=${TARGETOS} GOARCH=${TARGETARCH} CGO_ENABLED=${CGO_ENABLED} \
     go build --ldflags "-s -w" -a -installsuffix cgo -o health .
 
 # Make port available to the world outside this container
-EXPOSE 10000
+EXPOSE 80
 
 # Run app.py when the container launches
 CMD ["./health"]

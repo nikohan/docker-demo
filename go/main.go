@@ -13,7 +13,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 func main() {
     http.HandleFunc("/", index)
 	
-	port := 10000
+	port := 80
  
     err := http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
     if err != nil {
