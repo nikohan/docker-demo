@@ -11,5 +11,9 @@ def hello():
            "<b>Hostname:</b> {hostname}<br/>"
     return html.format(name=os.getenv("NAME", "world"), hostname=socket.gethostname())
 
+@app.route("/health")
+def hello():
+    return "ok"
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
