@@ -22,13 +22,6 @@ ADD . /home/app
 RUN GOOS=${TARGETOS} GOARCH=${TARGETARCH} CGO_ENABLED=${CGO_ENABLED} \
     go build --ldflags "-s -w" -a -installsuffix cgo -o health .
 
-FROM --platform=${TARGETPLATFORM:-linux/amd64} alpine:3.16 as ship
-
-# Set the working directory to /home/app
-WORKDIR /home/app
-
-COPY --from=builder /home/app  .
-
 # Make port 80 available to the world outside this container
 EXPOSE 80
 
