@@ -6,12 +6,12 @@ import (
     "net/http"
 )
 
-func index(w http.ResponseWriter, r *http.Request) {
+func health(w http.ResponseWriter, r *http.Request) {
     fmt.Fprintf(w, "OK")
 }
 
 func main() {
-    http.HandleFunc("/", index)
+    http.HandleFunc("/health", health)
 	
 	port := 80
  
